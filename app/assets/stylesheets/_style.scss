@@ -29,7 +29,7 @@ body {
     padding: 0 20px;
     height: 96px;
     background-color: #253141;
-    .user-name {
+    &__name {
       @include font();
       font-weight: bold;
       line-height: 96px;
