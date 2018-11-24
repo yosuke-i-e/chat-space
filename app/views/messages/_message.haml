@@ -1,5 +1,5 @@
 %div.group
-  = link_to messages_path do
+  = link_to root_path do
     %div.edit-button
       %p Edit
   %p.group__name グループ1
@@ -11,7 +11,7 @@
   %p.messages__body hello world
 
 %div.input
-  = form_tag messages_path do
+  = form_tag root_path do
     = text_field_tag :message, '', placeholder: "type a message"
     %label.file-form
       %i.fa.fa-picture-o
