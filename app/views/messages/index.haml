@@ -1,0 +1,15 @@
+%div.sidebar
+  %div.user
+    %p.user__name user-name
+    %p.icon
+      = link_to root_path do
+        %i.fa.fa-edit.fa-lg
+      = link_to root_path do
+        %i.fa.fa-cog.fa-lg
+  = link_to root_path do
+    %div.group-list
+      %p.group-list__name グループ1
+      %p.group-list__top-message まだメッセージはありません
+
+= render "message"
+

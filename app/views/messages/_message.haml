@@ -1,0 +1,22 @@
+%div.group
+  = link_to root_path do
+    %div.edit-button
+      %p Edit
+  %p.group__name グループ1
+  %p.group__member Members: user-name
+
+%div.messages
+  %p.messages__name user-name
+  %p.messages__time 2018/11/22 13:24:00
+  %p.messages__body hello world
+
+%div.input
+  = form_tag root_path do
+    = text_field_tag :message, '', placeholder: "type a message"
+    %label.file-form
+      %i.fa.fa-picture-o
+      = file_field_tag :file
+    %label.submit
+      %div.send-button
+        %p Send
+        =submit_tag
