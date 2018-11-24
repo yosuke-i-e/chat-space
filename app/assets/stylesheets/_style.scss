@@ -1,0 +1,144 @@
+@import "./variable";
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%
+}
+
+@mixin section($height: 100vh, $width: 300px, $background-color: #2f3e51, $margin-left: 300px, $padding: 0 40px) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+  margin-left: $margin-left;
+  padding: $padding;
+}
+
+@mixin font($font-size: 16px, $color: #ffffff) {
+  font-size: $font-size;
+  color: $color;
+}
+
+.sidebar {
+  @include section(100vh, 300px, #2f3e51, 0, 0);
+  float: left;
+  a {text-decoration: none;}
+  .user {
+    padding: 0 20px;
+    height: 96px;
+    background-color: #253141;
+    .user-name {
+      @include font();
+      font-weight: bold;
+      line-height: 96px;
+      float: left;
+    }
+    .icon {
+      float: right;
+      line-height: 96px;
+      a:link {color: #ffffff;}
+      a:visited {color: #ffffff;}
+    }
+  }
+  .group-list {
+    height: 96px;
+    color: #ffffff;
+    &__name {
+      padding: 20px 20px 0 20px;
+      font-size: 15px;
+    }
+    &__top-message {
+      font-size: 11px;
+      padding: 5px 20px 20px 20px;
+    }
+  }
+  .group-list:hover {
+    background-color: #3d5169;
+  }
+}
+
+.group {
+  @include section(auto, $windowRightWidth, #ffffff);
+  border-bottom: solid 1px #eeeeee;
+  &__name {
+    @include font(20px, #333333);
+    padding: 35px 0 0 0;
+  }
+  &__member {
+    @include font(12px, $fontColorGray);
+    padding: 10px 0 0 0;
+  }
+  .edit-button {
+    border: solid 2px $sectionColorBlue;
+    display: inline-block;
+    height: 40px;
+    width: 70px;
+    margin: 28px 0;
+    float: right;
+    p {
+      padding: 0 20px;
+      color: $sectionColorBlue;
+      line-height: 40px;
+    }
+  }
+}
+
+.messages {
+  @include section(calc(100vh - 191px), $windowRightWidth, #fafafa);
+  &__name {
+    @include font(16px, $fontColorDarkGray);
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 46px;
+  }
+  &__time {
+    @include font(12px, $fontColorGray);
+    display: inline-block;
+    padding-left: 10px;
+  }
+  &__body {
+    @include font(14px, $fontColorDarkGray);
+    padding-top: 10px;
+  }
+}
+
+.input {
+  @include section(auto, $windowRightWidth, #e6e6e6);
+  ::-webkit-input-placeholder {
+    color: $fontColorGray;
+  }
+  input[type="text"] {
+    margin: 20px 0;
+    height: 50px;
+    width: 770px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .file-form {
+    cursor: pointer;
+    position: absolute;
+    right: 170px;
+    bottom: 40px;
+    input[type="file"] {
+      display: none;
+    }
+  }
+  .send-button {
+    display: inline-block;
+    float: right;
+    margin: 20px 0 20px 15px;
+    height: 50px;
+    width: 100px;
+    background-color: $sectionColorBlue;
+    p {
+      line-height: 55px;
+      color: #ffffff;
+      text-align: center;
+    }
+    input[type="submit"] {
+      display: none;
+    }
+  }
+}
