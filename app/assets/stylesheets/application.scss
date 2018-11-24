@@ -1,18 +1,4 @@
-/*
- *= require font-awesome
- */
 @import "./variables_user";
 @import "./reset";
 @import "./style";
-@import 'variables';
-@import 'mixins';
-@import 'core';
-@import 'larger';
-@import 'fixed-width';
-@import 'list';
-@import 'bordered-pulled';
-@import 'animated';
-@import 'rotated-flipped';
-@import 'stacked';
-@import 'icons';
-@import 'screen-reader';
+@import "font-awesome";
