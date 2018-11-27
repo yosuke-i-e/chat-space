@@ -7,10 +7,12 @@
         %i.fa.fa-edit.fa-lg
       = link_to edit_user_registration_path do
         %i.fa.fa-cog.fa-lg
-  = link_to root_path do
-    %div.group-list
-      %p.group-list__name グループ1
-      %p.group-list__top-message まだメッセージはありません
+  - current_user.groups.each do |group|
+    = link_to root_path do
+      %div.group-list
+        %p.group-list__name
+          = group.name
+        %p.group-list__top-message まだメッセージはありません
 
 = render "message"
 
