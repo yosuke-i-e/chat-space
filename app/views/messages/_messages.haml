@@ -1,0 +1,8 @@
+- @messages.each do |message|
+  %p.messages__name
+    = message.user.name
+  %p.messages__time
+    = message.created_at
+  %p.messages__body
+    = message.body
+    = image_tag "#{message.image}"

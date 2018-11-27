@@ -1,18 +1,23 @@
-%div.sidebar
-  %div.user
-    %p.user__name
-      = current_user.name
-    %p.icon
-      = link_to new_group_path do
-        %i.fa.fa-edit.fa-lg
-      = link_to edit_user_registration_path do
-        %i.fa.fa-cog.fa-lg
-  - current_user.groups.each do |group|
-    = link_to root_path do
-      %div.group-list
-        %p.group-list__name
-          = group.name
-        %p.group-list__top-message まだメッセージはありません
+=render 'messages/sidebar', {groups: @group}
 
-= render "message"
+%div.group
+  = link_to edit_group_path(@group.id) do
+    %div.edit-button
+      %p Edit
+  %p.group__name
+    = @group.name
+  %p.group__member
+    Member :
+    - @group.users.each do |user|
+      = user.name
 
+%div.messages
+  = render 'messages/messages', {messages: @messages}
+
+%div.input
+  = form_for [@group, @message] do |f|
+    = f.text_field :body, placeholder: "type a message"
+    %label.file-form
+      %i.fa.fa-picture-o
+      = f.file_field :image
+    = f.submit 'Send', class: "send-button"
