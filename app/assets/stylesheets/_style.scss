@@ -39,13 +39,15 @@ body {
   a {text-decoration: none;}
   .user {
     padding: 0 20px;
+    width: 260px;
     height: 96px;
     background-color: #253141;
+    float: left;
     &__name {
       @include font();
+      position: fixed;
       font-weight: bold;
       line-height: 96px;
-      float: left;
     }
     .icon {
       float: right;
@@ -56,7 +58,9 @@ body {
   }
   .group-list {
     height: 96px;
+    width: 300px;
     color: #ffffff;
+    float: left;
     &__name {
       padding: 20px 20px 0 20px;
       font-size: 15px;
@@ -72,7 +76,7 @@ body {
 }
 
 .group {
-  @include section(auto, $windowRightWidth, #ffffff);
+  @include section(96px, $windowRightWidth, #ffffff);
   border-bottom: solid 1px #eeeeee;
   &__name {
     @include font(20px, #333333);
@@ -88,7 +92,8 @@ body {
     height: 40px;
     width: 70px;
     margin: 28px 0;
-    float: right;
+    position: absolute;
+    right: 40px;
     p {
       padding: 0 20px;
       color: $sectionColorBlue;
@@ -98,7 +103,8 @@ body {
 }
 
 .messages {
-  @include section(calc(100vh - 191px), $windowRightWidth, #fafafa);
+  @include section(calc(100vh - 191px), calc($windowRightWidth - 10px), #fafafa);
+  overflow: auto;
   &__name {
     @include font(16px, $fontColorDarkGray);
     display: inline-block;
@@ -144,11 +150,10 @@ body {
     height: 50px;
     width: 100px;
     background-color: $sectionColorBlue;
-    p {
-      line-height: 55px;
-      color: #ffffff;
-      text-align: center;
-    }
+    line-height: 55px;
+    color: #ffffff;
+    text-align: center;
+
     input[type="submit"] {
       display: none;
     }
