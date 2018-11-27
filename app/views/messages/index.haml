@@ -1,10 +1,11 @@
 %div.sidebar
   %div.user
-    %p.user__name user-name
+    %p.user__name
+      = current_user.name
     %p.icon
       = link_to root_path do
         %i.fa.fa-edit.fa-lg
-      = link_to root_path do
+      = link_to edit_user_registration_path do
         %i.fa.fa-cog.fa-lg
   = link_to root_path do
     %div.group-list
