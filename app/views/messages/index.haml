@@ -15,8 +15,8 @@
   = render 'messages/messages', {messages: @messages}
 
 %div.input
-  = form_for [@group, @message] do |f|
-    = f.text_field :body, placeholder: "type a message"
+  = form_for [@group, @message], html: {class: 'message-form'} do |f|
+    = f.text_field :body, class: "message-form__text-field", placeholder: "type a message"
     %label.file-form
       %i.fa.fa-picture-o
       = f.file_field :image
