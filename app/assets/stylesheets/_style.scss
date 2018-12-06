@@ -144,6 +144,7 @@ body {
     }
   }
   .send-button {
+    cursor: pointer;
     display: inline-block;
     float: right;
     margin: 20px 0 20px 15px;
@@ -153,9 +154,5 @@ body {
     line-height: 55px;
     color: #ffffff;
     text-align: center;
-
-    input[type="submit"] {
-      display: none;
-    }
   }
 }
