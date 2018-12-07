@@ -1,5 +1,8 @@
-json.id @last_message.id
-json.body @last_message.body
-json.user_name @last_message.user.name
-json.created_at @last_message.created_at
-json.image @last_message.image
+json.array! @messages do |message|
+  json.user_name message.user.name
+  json.created_at message.created_at
+  json.body message.body
+  json.image message.image
+  json.id message.id
+end
+
