@@ -12,6 +12,7 @@
       = user.name
 
 %div.messages
+  .chat{ id: "#{@last_message.id}"}
   = render 'messages/messages', {messages: @messages}
 
 %div.input
