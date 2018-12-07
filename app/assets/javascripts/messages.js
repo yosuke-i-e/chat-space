@@ -27,7 +27,6 @@ $(function() {
       .done(function(data) {
         var id = $('.chat').attr('id');
         var html = '';
-        console.log(data.id, id)
         if (data.id > id) {
           if (data.image.url == null) {
             html = buildHTML(data);
