@@ -19,26 +19,27 @@ $(function() {
 
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var message_id = $('.chat').attr('id')
       $.ajax({
         type: 'GET',
+        data: {
+          message: { id: message_id }
+        },
         url: location.href,
         dataType: 'json'
       })
       .done(function(messages) {
         messages.forEach(function(message){
-          var id = $('.chat').attr('id');
-          if (message.id > id) {
-            if (message.image.url == null) {
-              html = buildHTML(message);
-            } else {
-              html = buildImageHTML(message);
-            }
-            $('.chat').attr('id', message.id)
-            $('.messages').append(html);
-            $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight});
+          if (message.image.url == null) {
+            html = buildHTML(message);
+          } else {
+            html = buildImageHTML(message);
           }
-        });
-      });
+          $('.chat').attr('id', message.id)
+          $('.messages').append(html);
+          $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight});
+        })
+      })
       .fail(function(data){
         alert('自動更新に失敗しました')
       });
