@@ -24,23 +24,24 @@ $(function() {
         url: location.href,
         dataType: 'json'
       })
-      .done(function(data) {
-        var id = $('.chat').attr('id');
-        var html = '';
-        if (data.id > id) {
-          if (data.image.url == null) {
-            html = buildHTML(data);
-          } else {
-            html = buildImageHTML(data);
+      .done(function(messages) {
+        messages.forEach(function(message){
+          var id = $('.chat').attr('id');
+          if (message.id > id) {
+            if (message.image.url == null) {
+              html = buildHTML(message);
+            } else {
+              html = buildImageHTML(message);
+            }
+            $('.chat').attr('id', message.id)
+            $('.messages').append(html);
+            $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight});
           }
-          $('.chat').attr('id', data.id)
-          $('.messages').append(html);
-          $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight});
-        }
-      })
+        });
+      });
       .fail(function(data){
         alert('自動更新に失敗しました')
-      })
+      });
     } else {
       clearInterval(interval);
   }}, 5000);
