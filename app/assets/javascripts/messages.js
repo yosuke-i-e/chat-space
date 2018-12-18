@@ -70,6 +70,7 @@ $(function() {
       $('.chat').attr('id', data.id)
       $('.messages').append(html)
       $('.message-form__text-field').val('');
+      $('#message_image').val('');
       $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight});
       $('.send-button').prop("disabled", false);
     })
