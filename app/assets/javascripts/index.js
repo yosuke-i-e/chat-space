@@ -55,4 +55,7 @@ $(function() {
       alert('ユーザー検索に失敗しました');
     })
   });
+  $('.user-search-remove').on("click", function(){
+  $(this).parent().remove();
+  });
 });
