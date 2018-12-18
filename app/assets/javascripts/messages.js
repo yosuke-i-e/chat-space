@@ -20,10 +20,11 @@ $(function() {
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var message_id = $('.chat').attr('id')
+      var message_group = $('.chat__group').attr('id')
       $.ajax({
         type: 'GET',
         data: {
-          message: { id: message_id }
+          message: { id: message_id, group: message_group }
         },
         url: location.href,
         dataType: 'json'
