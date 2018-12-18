@@ -92,6 +92,10 @@
       float: left;
     }
 
+    .chat-group-current_user__name {
+      border-bottom: 1px solid #ddd;
+    }
+
     .chat-group-user__btn {
       float: right;
       display: inline-block;
