@@ -13,6 +13,7 @@
 
 %div.messages
   .chat{id: "#{@last_message.id if @messages.exists?}"}
+  .chat__group{id: "#{@last_message.group.id if @messages.exists?}"}
   = render 'messages/messages', {messages: @messages}
 
 %div.input
