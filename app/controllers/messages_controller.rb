@@ -4,10 +4,10 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = Message.includes(:user).where(group_id: @group.id)
-    @last_message = Message.last
+    @last_message = Message.includes(:user).where(group_id: @group.id).last
     respond_to do |format|
       format.html
-      format.json {@new_message = Message.where('id > ?', params[:message][:id])}
+      format.json {@new_message = Message.includes(:user).where('id > ?', params[:message][:id]).where('group_id = ?', params[:message][:group])}
     end
   end
 
