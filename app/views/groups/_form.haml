@@ -23,7 +23,10 @@
     .chat-group-form__field--right#result
       .chat-group-user.clearfix.js-chat-member{id: "chat-group-user-\#{current_user.id}"}
         %input{name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}/
+        %p.chat-group-current_user__name
+          #{current_user.name}
+      - if @users
         %p.chat-group-user__name
-          =current_user.name
+          = render 'groups/group', {users: @users}
     .chat-group-form__field--right
       = f.submit class: 'chat-group-form__action-btn'
