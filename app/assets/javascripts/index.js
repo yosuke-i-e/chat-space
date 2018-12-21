@@ -60,5 +60,4 @@ $(function() {
   });
   var sidebar = $('.sidebar').height();
   $('.messages').height(sidebar - 191);
-  console.log('高さ' + $('.sidebar').height());
 });
